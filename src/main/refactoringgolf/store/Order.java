@@ -79,9 +79,12 @@ public class Order {
 			totalItems += totalItem;
 		}
 		delivery= deliveryCost();
-		// total=totalItems + tax + delivery
-		return totalItems + totalItems * 5/100 + delivery;
+		return totalItems + tax(totalItems) + delivery;
 		
+	}
+
+	private float tax(float totalItems) {
+		return totalItems * 5/100;
 	}
 	
 	private int deliveryCost(){
@@ -89,7 +92,8 @@ public class Order {
 		{
 			return 0;
 		}
-		return 15;
-		
+		return 15;	
 	}
+	
+	
 }
