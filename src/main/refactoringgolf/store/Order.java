@@ -54,7 +54,6 @@ public class Order {
 
 	public float total() {
 		float totalItems = 0;
-		float delivery = 0;
 		for (OrderItem item : items) {
 			float totalItem=0;
 			float itemAmount = item.getProduct().getUnitPrice() * item.getQuantity();
@@ -78,8 +77,9 @@ public class Order {
 			}
 			totalItems += totalItem;
 		}
-		delivery= deliveryCost();
-		return totalItems + tax(totalItems) + delivery;
+		float tax=tax(totalItems);
+		int delivery= deliveryCost();
+		return totalItems + tax + delivery;
 		
 	}
 
